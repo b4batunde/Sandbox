@@ -1,27 +1,11 @@
 import pandas as pd
 import numpy as np
 
-arr = np.array([
-    '2020-01-05', '2020-02-12', '2020-03-20', '2020-04-25', '2020-05-30',
-    '2020-06-15', '2020-07-01', '2020-08-19', '2020-09-10', '2020-10-05',
-    '2020-11-18', '2020-12-22', '2021-01-10', '2021-02-14', '2021-03-30',
-    '2021-04-20', '2021-05-25', '2021-06-13', '2021-07-04', '2021-08-21',
-    '2021-09-15', '2021-10-30', '2021-11-11', '2021-12-01', '2022-01-06',
-    '2022-02-28', '2022-03-15', '2022-04-09', '2022-05-23', '2022-06-05',
-    '2022-07-17', '2022-08-29', '2022-09-11', '2022-10-30', '2022-11-19',
-    '2022-12-25', '2023-01-14', '2023-02-22', '2023-03-08', '2023-04-17',
-    '2023-05-30', '2023-06-11', '2023-07-04', '2023-08-26', '2023-09-09',
-    '2023-10-18', '2023-11-27', '2023-12-15', '2024-01-10', '2024-02-22'
-])
-np.random.shuffle(arr)
+# Sample data: Daily temperature readings from various cities
+data = [
+    "Delhi 35", "Mumbai 30", "Chennai 33", "Delhi 36", "Mumbai 29",
+    "Chennai 34", "Delhi 38", "Mumbai 28", "Chennai 32", "Delhi 34",
+    "Mumbai 31", "Chennai 35", "Delhi 37", "Mumbai 27", "Chennai 31"
+]
 
-seed = np.random.default_rng(2022)
-arr_ = seed.normal(50, 10, 50)
-
-series = pd.Series(arr_, index=arr, name="Dates")
-series = series.sort_values().iloc[:10]
-series = series.sort_index(ascending = False)
-random_dates = np.random.choice(arr, size=10, replace=False)
-mask = series.index.isin(random_dates) & (series <= 30)
-filtered = series[mask]
-print(filtered)
+temperature_series = pd.Series(data, name="City_Temperature")
